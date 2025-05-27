@@ -1,0 +1,18 @@
+FROM dunglas/frankenphp
+
+ENV SERVER_NAME=":8001"
+
+WORKDIR /app
+
+# Copy aplikasi
+COPY . ./app
+
+RUN install-php-extensions \
+	pdo_mysql \
+	gd \
+	intl \
+	zip \
+	opcache \
+    bcmath \
+    #... tambahkan ekstensi lain yang diperlukan
+    && rm -rf /var/lib/apt/lists/*
