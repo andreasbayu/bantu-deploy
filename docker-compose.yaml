@@ -11,7 +11,7 @@ services:
       - APP_ENV=local
       - DB_HOST=db
       - DB_PORT=3306
-      - DB_DATABASE=cek_lulus
+      - DB_DATABASE=laravel
       - DB_USERNAME=root
       - DB_PASSWORD=secret
     depends_on:
@@ -25,15 +25,10 @@ services:
     environment:
       MYSQL_DATABASE: laravel
       MYSQL_ROOT_PASSWORD: secret
-    volumes:
-      - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
     networks:
       - laravel-network
-
-volumes:
-  db_data:
 
 networks:
   laravel-network:
